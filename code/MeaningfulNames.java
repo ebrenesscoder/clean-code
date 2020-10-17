@@ -4,7 +4,6 @@ public class MeaningfulNames {
         /*
             Bad Code
         */
-
         int d; // elapsed time in days
 
         /*
@@ -34,12 +33,28 @@ public class MeaningfulNames {
 
     /*
         Good Code
+        Even better version in the below method
     */
     public List<int[]> getFlaggedCells() {
         List<int[]> flaggedCells = new ArrayList<int[]>();
 
         for(int[] cell : gameBoard) {
             if(x[STATUS_VALUE] == FLAGGED) {
+                flaggedCells.add(cell);
+            }
+        }
+
+        return flaggedCells;
+    }
+
+    /*
+        Good Code
+    */
+    public List<Cell> getFlaggedCells() {
+        List<Cell> flaggedCells = new ArrayList<Cell>();
+
+        for(Cell cell : gameBoard) {
+            if(cell.isFlagged()) {
                 flaggedCells.add(cell);
             }
         }
